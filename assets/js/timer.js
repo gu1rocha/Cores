@@ -16,7 +16,7 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 15;
+let TIME_LIMIT = 15;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -56,6 +56,9 @@ function onTimesUp() {
 }
 
 function startTimer() {
+  document.querySelector('#base-timer-path-remaining').classList.remove('red','orange')
+  document.querySelector('#base-timer-path-remaining').classList.add('green')
+  
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
     timeLeft = TIME_LIMIT - timePassed;
