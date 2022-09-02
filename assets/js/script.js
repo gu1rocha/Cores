@@ -61,7 +61,8 @@ let insertInputs = dif => {
         else
            endGame({
               text:'ERROU!!!',
-              color: 'red'
+              color: 'red',
+              time: ''
            })
     })
 }
@@ -69,6 +70,7 @@ let insertInputs = dif => {
 let endGame = obj =>{
     boxConf.querySelector('h1').textContent = obj.text
     boxConf.querySelector('h1').style.color = obj.color
+    boxConf.querySelector('h2').textContent = obj.time
     TIME_LIMIT = 15
     timePassed = 0
     
@@ -97,7 +99,8 @@ let next = () => {
     if(etap > 8)
        endGame({
           text: 'PARABÉNS!!!',
-          color: 'green'
+          color: 'green',
+          time: `Time: ${timePassed}s`
        })
     loopGame(atualizarAlet())
 }
