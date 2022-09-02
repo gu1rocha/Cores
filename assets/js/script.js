@@ -87,6 +87,7 @@ let inicializarGame = () => {
     step = 3
     etap = 1
     loopGame(atualizarAlet())
+    startTimer()
 }
 
 let next = () => {
