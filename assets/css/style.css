@@ -133,6 +133,10 @@ body{
   box-shadow: none;
 }
 
+.boxInit h1{
+  text-shadow: .1rem .1rem white;
+}
+
 .boxInit div{
   display: flex;
   justify-content: space-between;
