@@ -46,8 +46,6 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-startTimer();
-
 function onTimesUp() {
   endGame({
     text:'TEMPO ESGOTADO!!!',
