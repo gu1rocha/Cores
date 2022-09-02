@@ -49,8 +49,10 @@ document.getElementById("app").innerHTML = `
 startTimer();
 
 function onTimesUp() {
-  endGame('Tempo esgotado!!!')
-  clearInterval(timerInterval);
+  endGame({
+    text:'TEMPO ESGOTADO!!!',
+    color: 'orange'
+  })
 }
 
 function startTimer() {
