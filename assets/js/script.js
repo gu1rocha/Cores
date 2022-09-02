@@ -34,6 +34,10 @@ const cores = {
     
 }
 
+const boxConf = document.querySelector('.boxConf')
+
+const btnJogar = boxConf.querySelector('.jogar')
+
 const game = document.querySelector('.game')
 
 let step = 0
@@ -54,16 +58,26 @@ let insertInputs = dif => {
 
     input.addEventListener('click',()=>{
         if(dif) next()
-        else endGame('Errou!!!')
+        else
+           endGame({
+              text:'ERROU!!!',
+              color: 'red'
+           })
     })
 }
 
-let endGame = text =>{
-    alert(text)
-    document.location.reload(true)
+let endGame = obj =>{
+    boxConf.querySelector('h1').textContent = obj.text
+    boxConf.querySelector('h1').style.color = obj.color
+    TIME_LIMIT = 15
+    timePassed = 0
+    
+    clearInterval(timerInterval)
+    boxConf.removeAttribute('style')
 }
 
 let loopGame = (numDif) =>{
+    game.textContent = ""
     for (var i = 1; i <= step; i++) {
         insertInputs(numDif === i ? 'dif' : false)
     }
@@ -79,8 +93,15 @@ let next = () => {
     game.innerHTML = ''
     step = ++step
     etap = ++etap
-    if(etap > 8) endGame('Parabéns!!!')
+    if(etap > 8)
+       endGame({
+          text: 'PARABÉNS!!!',
+          color: 'green'
+       })
     loopGame(atualizarAlet())
 }
 
-inicializarGame()
+btnJogar.addEventListener('click',()=>{
+  boxConf.style.display = 'none';
+  inicializarGame()
+})
