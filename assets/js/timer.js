@@ -49,7 +49,8 @@ document.getElementById("app").innerHTML = `
 function onTimesUp() {
   endGame({
     text:'TEMPO ESGOTADO!!!',
-    color: 'orange'
+    color: 'orange',
+    time: ''
   })
 }
 
